@@ -1,0 +1,74 @@
+{
+    "DockerRun.DisableDockerrc": true,
+    "python.pythonPath": "/backend/venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "prettier.endOfLine": "lf",
+    "docker.compose.down": {
+        "removeVolumes": true
+    },
+    "docker.compose.up": {
+        "detach": true
+    },
+    "docker.commands.composeUp": "docker-compose -f docker-compose.yml up -d",
+    "docker.commands.composeDown": "docker-compose -f docker-compose.yml down",
+    "terminal.integrated.env.linux": {
+        "PG_HOST": "postgres",
+        "CORS_ORIGINS": "http://localhost:3000",
+        "NEXT_PUBLIC_BASE_API_URL": "http://localhost:8000"
+    },
+    "terminal.integrated.env.windows": {
+        "PG_HOST": "postgres",
+        "CORS_ORIGINS": "http://localhost:3000",
+        "NEXT_PUBLIC_BASE_API_URL": "http://localhost:8000"
+    },
+    "terminal.integrated.env.osx": {
+        "PG_HOST": "postgres",
+        "CORS_ORIGINS": "http://localhost:3000",
+        "NEXT_PUBLIC_BASE_API_URL": "http://localhost:8000"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.venv": true
+    },
+    "python.analysis.extraPaths": [
+        "./backend"
+    ],
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build and Up Docker Compose",
+                "type": "shell",
+                "command": "docker-compose -f docker-compose.yml up --build -d",
+                "group": "build",
+                "problemMatcher": []
+            }
+        ]
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.preferences.importModuleSpecifier": "relative"
+}
